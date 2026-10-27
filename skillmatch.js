@@ -8,38 +8,38 @@
 // Bloco 1 -  Competências do candidato //
 
 const perfilCandidato = {
-  nome = "Lucas"
-  competencias: ["HTML", "CSS", "JS"]
+    nome: "Lucas",
+    competencias: ["HTML", "CSS", "JavaScript"]
 };
 
 // Bloco 2 - Classe vagas disponíveis //
 
 class Vaga {
-constructor(nome, competencias) {
-  this.nome = nome;
-  this.competencias = competencias;
-}
+    constructor(nome, competencias) {
+        this.nome = nome;
+        this.competencias = competencias;
+    }
 
  // Como calcular a porcentagem referente à compatibilidade
-calcularCompatibilidade(perfilCandidato) {
-  const possui = this.competencias.filter(
-   this.competencias => perfilCandidato.includes(this.competencias)
+ calcularCompatibilidade(competenciasCandidato) {
+        const possui = this.competencias.filter(
+            competencia => competenciasCandidato.includes(competencia)
         );
 
-   return (possui.length / this.competencias.length) * 100;
+        return (possui.length / this.competencias.length) * 100;
     }
 
     // Identifica as habilidades que faltam
-encontrarFaltantes(perfilCandidato) {
-    return this.competencias.filter(
-     competencias => !perfilCandidato.includes(competencias)
+encontrarFaltantes(competenciasCandidato) {
+        return this.competencias.filter(
+            competencia => !competenciasCandidato.includes(competencia)
         );
     }
 
 
     // Classificar os niveis de compatibilidade
 classificar(percentual) {
- if (percentual >= 80) {
+        if (percentual >= 80) {
             return "Alta compatibilidade";
         } else if (percentual >= 50) {
             return "Média compatibilidade";
@@ -137,19 +137,19 @@ function gerarPlanoEstudo(resultados, vagas) {
 
     const competenciasUnicas = [...new Set(todasFaltantes)];
 
-    const plano = competenciasUnicas.map(habilidade => {
+    const plano = competenciasUnicas.map(competencia => {
         const quantidadeVagas = vagas.filter(
-            vaga => vaga.competencias.includes(habilidade)
+            vaga => vaga.competencias.includes(competencia)
         ).length;
 
         return {
-            competencias: competencias,
+            habilidade: competencia,
             quantidadeVagas: quantidadeVagas,
-            recomendacao: recomendacoes[competencias]
+            recomendacao: recomendacoes[competencia]
         };
     });
 
-    // Foco nas competências exigidas pelo maior número de vagas
+    // Prioriza competências exigidas pelo maior número de vagas
     return plano.sort(
         (a, b) => b.quantidadeVagas - a.quantidadeVagas
     );
@@ -158,8 +158,11 @@ function gerarPlanoEstudo(resultados, vagas) {
 
 async function iniciar() {
     console.log("===== SKILLMATCH JS =====");
-    console.log("Candidato:", candidato.nome);
-    console.log("Minhas competencias:", candidato.competencias.join(", "));
+    console.log("Candidato:", perfilCandidato.nome);
+    console.log(
+        "Minhas competências:",
+        perfilCandidato.competencias.join(", ")
+    );
 
     console.log("\nCarregando vagas...");
 
@@ -171,11 +174,11 @@ async function iniciar() {
 
     const resultados = vagas.map(vaga => {
         const percentual = vaga.calcularCompatibilidade(
-            candidato.competencias
+            perfilCandidato.competencias
         );
 
         const faltantes = vaga.encontrarFaltantes(
-            candidato.habilidades
+            perfilCandidato.competencias
         );
 
         mostrarResultado(() => {
@@ -189,10 +192,10 @@ async function iniciar() {
             console.log("Classificação:", vaga.classificar(percentual));
 
             if (faltantes.length === 0) {
-                console.log("Habilidades faltantes: nenhuma");
+                console.log("Competências faltantes: nenhuma");
             } else {
                 console.log(
-                    "Habilidades faltantes:",
+                    "Competências faltantes:",
                     faltantes.join(", ")
                 );
             }
@@ -235,13 +238,13 @@ async function iniciar() {
         );
     }
 
-    // Cria o plano de estudo
+    // Gera o plano de estudo
     const plano = gerarPlanoEstudo(resultados, vagas);
 
     console.log("\n===== PLANO DE ESTUDO =====");
 
     if (plano.length === 0) {
-        console.log("Você já possui todas as habilidades necessárias!");
+        console.log("Você já possui todas as competências necessárias!");
     } else {
         for (let indice = 0; indice < plano.length; indice++) {
             const item = plano[indice];
@@ -260,3 +263,10 @@ async function iniciar() {
     console.log("\nVagas analisadas:", contar());
     console.log("Simulação concluída!");
 }
+
+// Tratamento de erros
+
+
+iniciar().catch(erro => {
+    console.error("Erro ao executar o SkillMatch:", erro);
+});
