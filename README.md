@@ -20,7 +20,7 @@ Com o Node.js instalado, abra o terminal na pasta do projeto e execute:
 node teste.js
 ```
 
-## Funcionalidades existentes
+## Mecanismos existentes
 - Calcula a porcentagem de compatibilidade.
 - Classifica as vagas por compatibilidade.
 - Identifica competências faltantes.
