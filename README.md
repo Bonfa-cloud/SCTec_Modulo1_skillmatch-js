@@ -27,7 +27,7 @@ node teste.js
 - Encontra a vaga com maior compatibilidade.
 - Gera um plano de estudo priorizando competências exigidas por mais vagas.
 
-## Conceitos utilizados
+## Conhecimento JS utilizados
 Variáveis, arrays, objetos, condicionais, laço `for`, funções, métodos de array, classes, herança, `this`, callback, closure, `Promise`, `async/await` e tratamento de erros.
 
 ## Cliente-servidor
