@@ -86,4 +86,38 @@ const vagasDisponiveis = [
     )
 ];
 
+// Bloco 5 — Promise e Async/Await
 
+function carregarVagas() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            try {
+                resolve(vagasDisponiveis);
+            } catch (erro) {
+                reject(erro);
+            }
+        }, 1000);
+    });
+}
+
+
+// Bloco 6 - Mostrar Resultado - Callback
+
+function mostrarResultado(callback) {
+    callback();
+}
+
+
+// Bloco 7 - Contador
+
+function criarContador() {
+    let total = 0;
+
+    return function (incrementar = false) {
+        if (incrementar) {
+            total++;
+        }
+
+        return total;
+    };
+}
