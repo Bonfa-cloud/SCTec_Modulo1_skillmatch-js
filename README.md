@@ -37,7 +37,7 @@ O projeto simula localmente o carregamento de vagas com `Promise`, `setTimeout` 
 A IA foi utilizada como apoio para compreender conceitos, revisar o código, corrigir erros e organizar a documentação. O código foi testado localmente com Node.js.
 
 ## Links
-- **GitHub:** [Adicionar link]
+- **GitHub:** [https://github.com/Bonfa-cloud/SCTec_Modulo1_skillmatch-js.git]
 - **Vídeo:** [https://www.loom.com/share/3467a8b0842045e0ad84fafe90d8fbbb]
 - **Kanban:** [https://trello.com/invite/b/6ad69ad995c1af4b0b6826d9/ATTI820ab14e38ec5f03a6a8fb9dcd0b2d9dA404EBC6/sctec-mini-projeto-avaliativo-skillmatch-js]
 
