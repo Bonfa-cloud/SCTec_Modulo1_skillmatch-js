@@ -7,7 +7,7 @@
 ## Objetivo do mini projeto
 Simulador que compara as competências de um candidato com as exigências de vagas de Front-End Júnior, calcula a compatibilidade e recomenda o que estudar.
 
-## Tecnologias
+## Tecnologias usadas
 - JavaScript
 - Node.js
 - Visual Studio Code
@@ -20,7 +20,7 @@ Com o Node.js instalado, abra o terminal na pasta do projeto e execute:
 node teste.js
 ```
 
-## Funcionalidades
+## Funcionalidades existentes
 - Calcula a porcentagem de compatibilidade.
 - Classifica as vagas por compatibilidade.
 - Identifica competências faltantes.
