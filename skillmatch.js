@@ -175,7 +175,7 @@ async function iniciar() {
         );
 
         const faltantes = vaga.encontrarFaltantes(
-            candidato.habilidades
+            candidato.competencias
         );
 
         mostrarResultado(() => {
@@ -189,10 +189,10 @@ async function iniciar() {
             console.log("Classificação:", vaga.classificar(percentual));
 
             if (faltantes.length === 0) {
-                console.log("Habilidades faltantes: nenhuma");
+                console.log("Competencias faltantes: nenhuma");
             } else {
                 console.log(
-                    "Habilidades faltantes:",
+                    "Competencias faltantes:",
                     faltantes.join(", ")
                 );
             }
@@ -241,7 +241,7 @@ async function iniciar() {
     console.log("\n===== PLANO DE ESTUDO =====");
 
     if (plano.length === 0) {
-        console.log("Você já possui todas as habilidades necessárias!");
+        console.log("Você já possui todas as competencias necessárias!");
     } else {
         for (let indice = 0; indice < plano.length; indice++) {
             const item = plano[indice];
@@ -260,3 +260,10 @@ async function iniciar() {
     console.log("\nVagas analisadas:", contar());
     console.log("Simulação concluída!");
 }
+
+// Tratamento de erros
+
+
+iniciar().catch(erro => {
+    console.error("Erro ao executar o SkillMatch:", erro);
+});
